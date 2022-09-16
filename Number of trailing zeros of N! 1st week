@@ -1,0 +1,29 @@
+https://www.codewars.com/kata/52f787eb172a8b4ae1000a34
+
+Найти количество нулей в конце факториала числа
+
+Мое решение:
+Тут на википедии была гениальная формула и я ей воспользовался 
+public class Solution {
+  public static int zeros(int n) {
+       //находим логарифм от числа по основанию 5
+       int k_max = (int)Math.floor(Math.log(n)/Math.log(5));
+
+        int counter = 0;
+        //тут суммируем и это ответ
+        //доказательство формулы наверное где-то есть, я над ним не думал
+        for (int i = 1; i <= k_max; i++) {
+            counter += (int)Math.floor(1.0*n/Math.pow(5, i));
+        }
+
+        return counter;
+  }
+}
+
+Чужое решение:
+Меньше строчек это конечно хорошо, но думать над ними не очень 
+public class Solution {
+  public static int zeros(final int n) {
+    return (n < 5) ? 0 : (n / 5) + zeros(n / 5);
+  }
+}
